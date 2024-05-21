@@ -5,9 +5,17 @@
 
 from distutils.core import setup
 
+from setuptools import find_packages
 
 setup(
     name="bela",
     version="0.1",
-    packages=["bela"],
+    packages=find_packages(exclude=["mblink*"]),
+    package_data={
+        "bela": [
+            "conf/**/*",
+            "data/*",
+            "tests/data/*",
+        ]
+    },
 )
