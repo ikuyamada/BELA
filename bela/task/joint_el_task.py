@@ -564,7 +564,7 @@ class JointELTask(LightningModule):
                 checkpoint = torch.load(f, map_location=torch.device("cpu"))
 
             encoder_state = self._get_encoder_state(checkpoint, "encoder")
-            self.encoder.load_state_dict(encoder_state)
+            self.encoder.load_state_dict(encoder_state, strict=False)
 
             span_encoder_state = self._get_encoder_state(checkpoint, "span_encoder")
             self.span_encoder.load_state_dict(span_encoder_state)
